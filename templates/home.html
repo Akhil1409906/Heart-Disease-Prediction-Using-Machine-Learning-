@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+    <title>Heart Disease Prediction - Home</title>
+    <style>
+      /* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eaebeb;
+    color: #343a40;
+    margin-top: 80px;
+    animation: fadeInBody 1.5s ease-out;
+}
+/* General Navbar Styling */
+.navbar {
+    background-color: #f6f6f6;  /* White background for the navbar */
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  /* Slight shadow to give it a modern look */
+    transition: background-color 0.3s ease;
+}
+.navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+    color: #343a40;  /* Dark text color for the brand */
+    font-size: 2.8rem;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    transition: color 0.3s ease;
+}
+.navbar .navbar-logo {
+    width: 90px;  /* Set the logo size */
+    height: 90px;
+    object-fit: cover;  /* Ensures image maintains aspect ratio */
+}
+
+/* Navbar links styling */
+.navbar .navbar-nav .nav-link {
+    color: #343a40;  /* Default text color for links */
+    font-size: 1.4rem;
+    margin-right: 20px;  /* Adds space between navbar items */
+    padding: 8px 16px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover effect on navbar links */
+.navbar .navbar-nav .nav-link:hover {
+    color: #007bff;  /* Text color changes to blue on hover */
+    background-color: rgba(0, 123, 255, 0.1);  /* Light background on hover */
+    border-radius: 50px;  /* Rounded corners on hover */
+}
+
+/* Active link styling */
+.navbar .navbar-nav .nav-link.active {
+    color: #007bff !important;  /* Ensure active link text is always blue */
+}
+
+/* Navbar Toggler Icon */
+.navbar-toggler-icon {
+    background-color: #007bff;  /* Set the toggler icon color to blue */
+}
+
+/* Hero Section Styling */
+.hero-section {
+    background-color: #ffffff;  /* White background for hero section */
+    color: rgb(9, 8, 8);
+    padding: 40px 0;  /* Increased top and bottom padding for more height */
+    height: 100vh;  /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);  /* Adding shadow to create the "sink" effect */
+    gap: 40px;  /* Add space between text and image */
+    flex-wrap: wrap;  /* Allow wrapping for responsiveness */
+}
+
+.hero-text {
+    color: rgb(23, 21, 21);
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;  /* Large font size for the main heading */
+    font-weight: bold;  /* Bold for emphasis */
+    margin-bottom: 20px;  /* Space below the heading */
+    color: black!important;  /* Keeping black color */
+    font-family: 'Arial', sans-serif;  /* Different font for the heading */
+    text-transform: uppercase;  /* Making the heading uppercase */
+    letter-spacing: 1px;  /* Slight letter spacing for a refined look */
+}
+
+.hero-text p {
+    font-size: 1.3rem;  /* Slightly smaller font size for the paragraph */
+    margin-bottom: 30px;  /* Space below the paragraph */
+    color: black!important;  /* Black color */
+    font-family: 'Georgia', serif;  /* A more elegant, serif font */
+    font-style: italic;  /* Italic style for emphasis */
+}
+
+.hero-text .btn {
+    padding: 18px 40px;  /* Button padding */
+    font-size: 1.4rem;  /* Button font size */
+    border-radius: 50px;
+    background-color: #577eff;  /* Button color */
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.hero-text .btn:hover {
+    background-color: #141413;
+    color:#ffffff  /* Hover effect on the button */
+}
+
+/* Image Section Styling */
+.hero-image img {
+    max-width: 100%;  /* Ensures responsiveness */
+    height: 900px;  /* Adjust height of the image */
+    width: 100%;  /* Adjust width to fit properly alongside the text */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgb(255, 255, 255);  
+}
+
+/* Features Section */
+#features {
+    background-color: #f1f1f1;
+    padding: 50px 0;
+    animation: fadeInRight 2s ease-out;
+   
+}
+
+/* Features Section */
+#features h2 {
+    font-size: 2.5rem;  /* Adjust the font size of the heading */
+    color: #333333;  /* Set a darker color for the text */
+    font-weight: bold;  /* Make the heading bold */
+    text-align: center;  /* Center-align the heading */
+    margin-bottom: 40px;  /* Add some space below the heading */
+    font-family: 'Arial', sans-serif;  /* Use a clean and modern font */
+}
+
+#features .feature-card {
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInUpScale 2s ease-out forwards;
+    text-align: center;  /* Center-align the text inside feature cards */
+    margin-top: 40px;  /* Optional: Add space above the first card */
+}
+
+#features .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.1);
+}
+
+#features .feature-card img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 30%;
+}
+
+#features .feature-card h4 {
+    font-size: 1.8rem;  /* Font size for the card heading */
+    margin-top: 15px;
+    font-weight: bold;
+    color: #2d2e2e;  /* Darker color for the card heading */
+    text-align: center;  /* Center-align the card heading */
+}
+
+#features .feature-card p {
+    font-size: 1.3rem;  /* Font size for the card description */
+    color: #393838;  /* Lighter color for the paragraph */
+    text-align: left;  /* Left-align the paragraph text */
+    margin-top: 10px;  /* Space above the paragraph */
+}
+
+
+
+#about h2 {
+    font-size: 3rem;  /* Larger font size for the heading */
+    color: #343a40;  /* Dark color for the heading */
+    font-weight: bold;  /* Bold text to make it prominent */
+    margin-bottom: 30px;  /* Space below the heading */
+    font-family: 'Arial', sans-serif;  /* Modern sans-serif font */
+    text-transform: uppercase;  /* Uppercase letters for emphasis */
+    letter-spacing: 2px;  /* Slight letter spacing for clarity */
+}
+
+#about p.lead {
+    font-size: 1.4rem;  /* Slightly larger font size for readability */
+    color: #555555;  /* Lighter gray color for the text */
+    line-height: 1.6;  /* Improved line height for readability */
+    margin-bottom: 40px;  /* Space below the paragraph */
+    font-family: 'Georgia', serif;  /* Elegant serif font for body text */
+    max-width: 800px;  /* Limit paragraph width for better readability */
+    margin-left: auto;  /* Center align the paragraph */
+    margin-right: auto;  /* Center align the paragraph */
+}
+
+@media (max-width: 768px) {
+    #about h2 {
+        font-size: 2.5rem;  /* Adjust heading size on smaller screens */
+    }
+
+    #about p.lead {
+        font-size: 1.1rem;  /* Adjust paragraph font size for smaller screens */
+        padding-left: 20px;  /* Add some padding for readability */
+        padding-right: 20px;  /* Add some padding for readability */
+    }
+}
+
+
+
+/* Testimonials Section */
+#testimonials {
+    background-color: #333;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+    animation: fadeInLeftBig 2s ease-out;
+}
+
+.testimonial-card {
+    background-color: #444;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInLeftBig 2s ease-out forwards;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-card p {
+    font-size: 1.1rem;
+    color: #ddd;
+}
+
+.testimonial-card footer {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffdd57;
+}
+
+/* FAQ Section */
+#faq {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    animation: fadeInDownBig 2s ease-out;
+}
+
+.accordion-button {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #0056b3;
+}
+
+.accordion-button:hover {
+    background-color: #0056b3;
+}
+
+.accordion-body {
+    font-size: 1.1rem;
+    color: #6c757d;
+}
+
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    animation: fadeInUpBig 2s ease-out;
+}
+
+.footer a {
+    color: #ffdd57;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffffff;
+}
+
+/* Advanced Keyframe Animations for Directional Fade-In */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUpScale {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeInDownBig {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeftBig {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRightBig {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInBody {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUpScaleBig {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <!-- Navbar Brand with Image -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="static/e.png" alt="Logo" class="navbar-logo me-2">
+                Heart Disease Prediction
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+    <!-- Hero Section -->
+<section class="hero-section d-flex align-items-center justify-content-center">
+    <div class="container d-flex align-items-center justify-content-between">
+        <!-- Text Section -->
+        <div class="hero-text col-md-6 text-center text-md-start">
+            <h1 class="display-4 text-white fw-bold">Predict Heart Disease with AI</h1>
+            <p class="lead text-white mb-4">Leverage cutting-edge machine learning models to predict heart disease with high accuracy.</p>
+            <a href="/login" class="btn btn-primary btn-lg px-4 py-2">Get Started</a>
+        </div>
+        <!-- Image Section -->
+        <div class="hero-image col-md-6">
+            <img src="static/2.jpg" class="img-fluid rounded" alt="Heart Disease AI Image">
+        </div>
+    </div>
+</section>
+
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Features of Our Heart Disease Prediction Tool</h2>
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card">
+                        <img src="static/c.png" alt="AI Model" class="img-fluid rounded-circle mb-3">
+                        <h4>AI-Driven Model</h4>
+                        <p>Our advanced AI model utilizes machine learning to analyze health data and predict the likelihood of heart disease.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card">
+                        <img src="static/a.jpg" alt="Data Analysis" class="img-fluid rounded-circle mb-3">
+                        <h4>Data Analysis</h4>
+                        <p>We collect critical health metrics to ensure accurate data analysis for precise prediction results.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card">
+                        <img src="static/d.jpg" alt="User Friendly" class="img-fluid rounded-circle mb-3">
+                        <h4>User-Friendly Interface</h4>
+                        <p>Our platform is designed for easy navigation with a simple interface for users to input their health data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container text-center">
+            <h2 class="text-dark mb-4">About the Project</h2>
+            <p class="lead">We use AI and machine learning algorithms to train and test our prediction model. The process involves taking a carefully curated dataset, which includes various health metrics such as age, blood pressure, cholesterol levels, and more. This dataset is then used to train the model, enabling it to learn from past data and make accurate predictions for new, unseen data. The training process is key to refining the model's ability to assess heart disease risk, ensuring reliable predictions for better patient care and early intervention.</p>
+        </div>
+    </section>
+
+   <!-- Home Section: Heart Disease Prediction Project -->
+<section id="home" class="home-section bg-light py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Left Column: Text Content -->
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold text-primary mb-4">AI-Powered Heart Disease Risk Prediction</h1>
+                <p class="lead text-muted mb-4">Using advanced machine learning models, our tool helps you assess your risk for heart disease based on key health metrics. Accurate, fast, and easy to use, our platform empowers you to take control of your health.</p>
+                <p class="mb-4"><strong>Key Features:</strong></p>
+                <ul class="list-unstyled mb-4">
+                    <li><i class="bi bi-check-circle text-success"></i> Predict your heart disease risk based on health data.</li>
+                    <li><i class="bi bi-check-circle text-success"></i> Secure and private data handling with AI-driven predictions.</li>
+                    <li><i class="bi bi-check-circle text-success"></i> Real-time health assessment at your fingertips.</li>
+                </ul>
+                <a href="/login" class="btn btn-primary btn-lg">Start Now</a>
+            </div>
+
+            <!-- Right Column: Image Content -->
+            <div class="col-lg-6">
+                <div class="position-relative">
+                    <img src="static/b.png" alt="Heart Disease Prediction" class="img-fluid rounded shadow-lg">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-25"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">What Users Say</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <p>"This tool helped me understand my health better. I was able to take preventive steps before it was too late!"</p>
+                        <footer>- Akhil Doe</footer>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <p>"The predictions were so accurate and easy to understand. I highly recommend this service to everyone!"</p>
+                        <footer>- Tej Smith</footer>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <p>"I was impressed with how the system worked and how simple it was to input my data."</p>
+                        <footer>- Emily Clark</footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What data do I need to input?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="faqOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            You will need to input basic medical information such as age, blood pressure, cholesterol level, and other relevant health metrics.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqTwo">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            How accurate is the prediction?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="faqTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Our model is trained with vast datasets, and it has proven to be highly accurate in predicting heart disease risk based on the available data.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqThree">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Is my data safe?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="faqThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, we prioritize your privacy. All data is encrypted and stored securely, following the best practices for data protection.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-center text-white py-3">
+        <p>&copy; 2024 Heart Disease Prediction. All Rights Reserved.</p>
+        <p><a href="/privacy-policy" class="text-white">Privacy Policy</a> | <a href="/terms" class="text-white">Terms of Service</a></p>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // JavaScript for the prediction form
+        document.getElementById("prediction-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let age = document.getElementById("age").value;
+            let bloodPressure = document.getElementById("bloodPressure").value;
+            let cholesterol = document.getElementById("cholesterol").value;
+
+            // Placeholder prediction logic
+            let prediction = "Low risk of heart disease"; // This should be replaced with actual ML model prediction
+
+            document.getElementById("prediction-result").innerHTML = `
+                <div class="alert alert-success" role="alert">
+                    Prediction: ${prediction}
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>

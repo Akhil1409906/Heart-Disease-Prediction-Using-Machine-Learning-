@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+	<style>
+		
+		/* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+        
+        /* Header Styles */
+        .default-header {
+            background-color: rgba(12, 12, 12, 0.974);
+            padding: 15px 0;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar-brand img {
+            max-height: 50px;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .navbar-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        .navbar-nav a.active {
+            font-weight: bold;
+        }
+        
+        .navbar-toggler {
+            border: none;
+            background: transparent;
+            color: #fff;
+        }
+        
+        /* Footer Styles */
+        .footer-area {
+            background-color: #140f10;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .footer-area p {
+            margin: 0;
+        }
+        
+        /* Banner Styles */
+        .banner-area {
+            position: relative;
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-align: center;
+        }
+        
+        .banner-content h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        
+        /* Project Area Styles */
+        .project-area {
+            padding: 60px 0;
+        }
+        
+        .section-title h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        /* Chart Container */
+        #piechart_3d {
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            margin: 0 auto;
+        }
+	</style>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" href="img/fav.png">
+	<!-- Author Meta -->
+	<meta name="author" content="colorlib">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>Heart Disease Prediction</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700|Roboto:400,500" rel="stylesheet">
+	<!--
+			CSS
+			============================================= -->
+		<link rel="stylesheet" href="../static/css/linearicons.css">
+	<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../static/css/bootstrap.css">
+	<link rel="stylesheet" href="../static/css/owl.carousel.css">
+	<link rel="stylesheet" href="../static/css/magnific-popup.css">
+	<link rel="stylesheet" href="../static/css/nice-select.css">
+	<link rel="stylesheet" href="../static/css/mains.css">
+</head>
+
+<body>
+	<video class="video-background" autoplay muted loop>
+		<source src="static/h.mp4" type="video/mp4">
+		<!-- Add more <source> tags for other video formats -->
+		Your browser does not support the video tag.
+	</video>
+
+	<!-- Start Header Area -->
+	<header class="default-header">
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="container">
+				<a class="navbar-brand" href="index.html">
+					<img src="img/logo.png" alt="">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="fa fa-bars"></span>
+				</button>
+
+				<div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
+					<ul class="navbar-nav">
+						 	
+						<li><a class="active"  href="{{url_for('chart')}}">Chart</a></li>
+						<li><a  href="{{url_for('logout')}}">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End Header Area -->
+
+	<!-- Start top-section Area -->
+	<section class="banner-area relative">
+		<div class="overlay overlay-bg"></div>
+		<div class="container">
+			<div class="row justify-content-between align-items-center text-center banner-content">
+				<div class="col-lg-12">
+				<center><h1 class="text-white">Chart</h1></center>
+					 
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End top-section Area -->
+
+	<!-- Start Project Area -->
+	<section class="project-area section-gap-top" id="project">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="col-lg-8">
+					<div class="section-title text-center">
+						<h4></h4>
+						<center><h2>Chart</h2></center>
+					</div>
+					
+					<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Low Chance of heart attack ',     30],
+          
+          ['High Chance of heart attack',    70]
+        ]);
+
+        var options = {
+          title: '',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+	  
+    </script>
+  </head>
+  <body>
+  <center>  <h1>Heart Disease Prediction(pie chart analysis)</h1></center>
+   
+    <div id="piechart_3d" style="width: 900px; height: 500px; margin-left: 600px; "></div>
+  </body>
+     
+</html>
+					
+					
+					
+					
+				</div>
+				 
+			</div>
+		 
+		</div>
+	</section>
+	<!-- End Project Area -->
+
+	<!-- start footer Area -->
+	<footer class="footer-area section-gap">
+		<div class="container">
+			<div class="row">
+				 
+			</div>
+		</div>
+	</footer>
+	<!-- End footer Area -->
+
+<script src="../static/js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+	 crossorigin="anonymous"></script>
+	<script src="../static/js/vendor/bootstrap.min.js"></script>
+	<script src="../static/js/jquery.ajaxchimp.min.js"></script>
+	<script src="../static/js/parallax.min.js"></script>
+	<script src="../static/js/owl.carousel.min.js"></script>
+	<script src="../static/js/isotope.pkgd.min.js"></script>
+	<script src="../static/js/jquery.nice-select.min.js"></script>
+	<script src="../static/js/jquery.magnific-popup.min.js"></script>
+	<script src="../static/js/jquery.sticky.js"></script>
+	<script src="../static/js/main.js"></script>
+</body>
+
+</html>
