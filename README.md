@@ -51,7 +51,7 @@ Follow these steps to set up and run the project locally:
 ### Prerequisites
 
 - Python 3.8 or above
-- pip instal -r requirements.txt
+- pip install -r requirements.txt
 
 ### Steps
 
